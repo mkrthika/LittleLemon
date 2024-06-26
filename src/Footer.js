@@ -1,5 +1,6 @@
 import React from 'react'
 import Open from './icons_assets/open.jpg'
+import {Link} from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -8,12 +9,12 @@ const Footer = () => {
         <div className="footer_nav">
         <h3>Dormat Navigation</h3>
         <ul>
-            <li><a href="Home">Home</a></li>
-            <li><a href="About">About</a></li>
-            <li><a href="Menu">Menu</a></li>
-            <li><a href="Reservations">Reservations</a></li>
-            <li><a href="Order Online">Order Online</a></li>
-            <li><a href="Login">Login</a></li>
+        <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/menu">Menu</Link></li>
+            <li><Link to="/reservations">Reservations</Link></li>
+            <li><Link to="/order-online">Order Online</Link></li>
+            <li><Link to="/login">Login</Link></li>
         </ul>
         </div>
         <div className="footer_contacts">
