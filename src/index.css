@@ -62,7 +62,8 @@
   padding: 8px;
   border-radius: 10px;
 }
-.nav_component ul li a:hover , .footer_component ul li a:hover{
+.nav_component ul li a:hover , .footer_component ul li a:hover , .header_content a:hover , .homepage_component a:hover,
+.card_component a:hover{
   padding: 10px;
   background-color: #495e57;
   color: white;

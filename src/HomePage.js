@@ -24,9 +24,9 @@ const HomePage = () => {
     <div className="testimonials">
     <h1>Hear from our Customers</h1>
     <div className="cards">
-    <Testimonials desc = "The food here is absolutely delicious! Every dish we tried was bursting with flavor and cooked to perfection. Highly recommend the Lemon Dessert and Chicken Wrap." rating="4.5 stars"/>
-    <Testimonials desc = "The service here is excellent. Our server was attentive without being intrusive. The entire staff worked seamlessly together to create a seamless dining experience. We never had to ask anything twice!" rating="4.3 stars"/>
-    <Testimonials desc = "The ambiance is just so Instagram-worthy. Each picture you take here would look stunning on social media, from the food images to the overall setting. Overall, great job, and the place is a must-visit." rating="4 stars"/>
+    <Testimonials title= "Food" desc = "The food here is absolutely delicious! Every dish we tried was bursting with flavor and cooked to perfection. Highly recommend the Lemon Dessert and Chicken Wrap." rating="4.5 stars"/>
+    <Testimonials  title="Service"desc = "The service here is excellent. Our server was attentive without being intrusive. The entire staff worked seamlessly together to create a seamless dining experience. We never had to ask anything twice!" rating="4.3 stars"/>
+    <Testimonials title="Ambience" desc = "The ambiance is just so Instagram-worthy. Each picture you take here would look stunning on social media, from the food images to the overall setting. Overall, great job, and the place is a must-visit." rating="4 stars"/>
     </div>
    
     </div>
