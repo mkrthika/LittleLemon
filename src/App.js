@@ -3,12 +3,13 @@ import Footer from './Footer';
 import HomePage from './HomePage';
 import Nav from './Nav';
 import About from './About'
-import Booking from './Booking'
 import Menu from './Menu'
-import OrderOnline from './OrderOnline'
 import Login from './Login'
 import metaimg from './icons_assets/Logo .svg'
 import { Route , Routes} from 'react-router-dom';
+import OrderOnlineMenu from './OrderOnlineMenu';
+import Register from './register';
+import Main from './Main';
 
 function App() {
   return (
@@ -22,9 +23,10 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="about" element={<About />} />
         <Route path="menu" element={<Menu />} />
-        <Route path="reservations" element={<Booking />} />
-        <Route path="order-online" element={<OrderOnline />} />
+        <Route path="reservations" element={<Main />} />
+        <Route path="order-online" element={<OrderOnlineMenu />} />
         <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
       </Routes>
       <Footer />
     </div>

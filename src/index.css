@@ -9,10 +9,22 @@
   
 } */
 
-.nav_component , .footer_component,.cards
- {
+.nav_component , .footer_component,.cards,.login_component , .register_component{
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items:flex-start;
+  padding-bottom: 10px;
+  border-bottom: 2px solid black;
+  font-family: "Karla" , sans-serif;
+  margin:0 auto;
+  width: 900px;
+}
+.about,.menu_component 
+{
+  display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items:flex-start;
@@ -25,8 +37,7 @@
 .footer_component{
   padding-top: 10px;
 }
-
-.homepage_component , .header_component , .testimonials{
+.homepage_component , .header_component , .testimonials {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -63,7 +74,7 @@
   border-radius: 10px;
 }
 .nav_component ul li a:hover , .footer_component ul li a:hover , .header_content a:hover , .homepage_component a:hover,
-.card_component a:hover{
+.card_component a:hover , .starter a:hover , .login_content a:hover , .register_content a:hover{
   padding: 10px;
   background-color: #495e57;
   color: white;
@@ -73,15 +84,16 @@
   height: auto;
   border-radius: 20px;
 }
-.header_component img{
+.header_component img , .starter img{
   width: 240px;
-  height: auto;
+  height:min-content;
   border-radius: 20px;
 }
-.header_content h1 , .homepage_component h1 , .testimonials h1{
+.header_content h1 , .homepage_component h1 , .testimonials h1,.about h1 , .menu_component h1{
   color: #F4CE14;
 }
-.header_content a , .homepage_component a , .card_component a{
+.header_content a , .homepage_component a , .card_component a , .starter a , .login_form button , .register_form button,
+.register_content input[type="submit"]{
   background-color: #F4CE14;
   padding: 10px;
   border-radius: 20px;
@@ -90,7 +102,7 @@
   text-decoration: none;
   color: black;
 }
-.card_component , .testimonial_component{
+.card_component , .testimonial_component, .starter{
   border: 1px solid black;
   border-radius: 20px;
   box-shadow: 5px 5px 5px hsla(0,0%,0%,0.1);
@@ -111,6 +123,34 @@
   justify-content: center;
   align-items: center;
 }
+.about img{
+  width: 900px;
+  border: 2px solid black;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px hsla(0,0%,0%,0.1);
+}
+.login_content , .register_content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.login_form , .register_form{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.login_content a , .register_content a{
+  text-decoration: none;
+  color: black;
+  padding: 5px;
+  background-color: #F4CE14;
+  border-radius: 20px;
+  font-weight: 700;
+}
+
 
 
 
