@@ -33,7 +33,6 @@ const Booking = ({availableTimes, handleDateChange}) => {
   const reservation = JSON.parse(localStorage.getItem('Reservation Details') || "[]");
   reservation.push(datatosubmit)
   localStorage.setItem('Reservation Details', JSON.stringify(reservation))
-  console.log(datatosubmit)
   submitForm(datatosubmit)
 }
 

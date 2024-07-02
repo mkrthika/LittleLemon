@@ -1,10 +1,9 @@
 import React from 'react'
 
-const ConfirmedBooking = ({data}) => {
+const ConfirmedBooking = () => {
   return (
     <div className="confirmbooking_component">
         <h1>Booking has been confirmed</h1>
-        {console.log(data)}
     </div>
   )
 }
