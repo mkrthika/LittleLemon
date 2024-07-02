@@ -10,6 +10,7 @@ import { Route , Routes} from 'react-router-dom';
 import OrderOnlineMenu from './OrderOnlineMenu';
 import Register from './register';
 import Main from './Main';
+import ConfirmedBooking from './ConfirmedBooking';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="order-online" element={<OrderOnlineMenu />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
+        <Route path="confirmbooking" element={<ConfirmedBooking />} />
       </Routes>
       <Footer />
     </div>

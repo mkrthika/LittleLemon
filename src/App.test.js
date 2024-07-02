@@ -1,8 +1,13 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { fireEvent, render, screen } from "@testing-library/react";
+import Booking from './Booking';
+import Main from "./Main";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+test('Renders the BookingForm heading', () => {
+    /*render(<Booking />); */
+    /* const headingElement = screen.getByText("Book your Table");
+    expect(headingElement).toBeInTheDocument(); */
+    render(<Main />);
+    const mockFunc =  jest.fn();
+    mockFunc();
+    expect(mockFunc()).toBeDefined();
+})

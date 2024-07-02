@@ -9,7 +9,7 @@
   
 } */
 
-.nav_component , .footer_component,.cards,.login_component , .register_component{
+.nav_component , .footer_component,.cards,.login_component , .register_component , .confirmbooking_component{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -89,7 +89,7 @@
   height:min-content;
   border-radius: 20px;
 }
-.header_content h1 , .homepage_component h1 , .testimonials h1,.about h1 , .menu_component h1{
+.header_content h1 , .homepage_component h1 , .testimonials h1,.about h1 , .menu_component h1 , .confirmbooking_component h1{
   color: #F4CE14;
 }
 .header_content a , .homepage_component a , .card_component a , .starter a , .login_form button , .register_form button,
