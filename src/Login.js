@@ -17,7 +17,7 @@ const Login = () => {
   
   const handleLogin = (e) => {
     e.preventDefault();
-    if(userData.email !== "muthukrthika@gmail.com" || userData.password !== "Krthika@26") return setError("Please enter valid Username and password");
+    if(userData.email !== "admin@gmail.com" || userData.password !== "admin") return setError("Please enter valid Username and password");
     else {
       navigate("/")
       localStorage.setItem("auth",true)
@@ -31,7 +31,7 @@ const Login = () => {
     <div className="login_component">
       <div className="login_content">
       <h2>Sign In</h2>
-      
+      <div>For Reviewers :- To Login please use Email : admin@gmail.com and Password: admin</div>
         <form className="form login_form" onSubmit={handleLogin}>
           {error.length > 0 && <div style = {{marginBottom: "10px", color: "red"}}>{error}</div>}
           <input type="email" placeholder='Email' name='email' value={userData.email} onChange={changeInputHandler} required/>

@@ -22,7 +22,7 @@ const Nav = () => {
             (<Link className="link" to="/" onClick={() => {handleLogout(); setLogin(true);}}>Logout</Link>) 
             :(<Link className="link" to="/login">LogIn</Link>)}</li>
         </ul>
-        {localStorage.getItem("auth") && <h1>Welcome Krthika </h1>}
+        {localStorage.getItem("auth") && <h1>Welcome Admin </h1>}
     </nav>
   )
 }
