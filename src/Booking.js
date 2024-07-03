@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import ConfirmedBooking from './ConfirmedBooking';
+
 
 const Booking = ({availableTimes, handleDateChange}) => {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ const Booking = ({availableTimes, handleDateChange}) => {
     guests: '',
     occasion: ''
   })
-
+  const[disable,setDisable] = useState("typing")
   const changeInputHandler = (e) => {
     setUserData(prevState => {
       return {...prevState,[e.target.name]: e.target.value}
@@ -23,12 +23,15 @@ const Booking = ({availableTimes, handleDateChange}) => {
   
   const submitAPI = function(formData) {
     return true;
+    
 };
   const handleSubmit = async(event) => {
   event.preventDefault();
+  setDisable('submitted')
   const datatosubmit = {
     ...userData
   }
+  
   //Local Storage
   const reservation = JSON.parse(localStorage.getItem('Reservation Details') || "[]");
   reservation.push(datatosubmit)
@@ -38,8 +41,11 @@ const Booking = ({availableTimes, handleDateChange}) => {
 
   const submitForm = async(datatosubmit) => {
     try{
-      await submitAPI(datatosubmit);
-      navigate("/confirmbooking");
+      const res = await submitAPI(datatosubmit);
+      if(res){
+        navigate("/confirmbooking");
+      }
+      
     }catch(error){
       navigate("/error", {state:{message:"Failed to submit the form"}});
     }
@@ -50,28 +56,39 @@ const Booking = ({availableTimes, handleDateChange}) => {
         <div className="register_content">
         <h2>Book your Table</h2>
         <p>Add your informations to the below fields to Book a Table </p>
-        <form className="form register_form" onSubmit={handleSubmit}>
-          <input type="text" placeholder='Full Name' name='name' value={userData.name} onChange={changeInputHandler}/>
-          <input type="text" placeholder='Email' name='email' value={userData.email} onChange={changeInputHandler}/>
-          <label htmlFor="res-date">Choose date</label>
-          <input type="date" id="res-date" name='date' value={userData.date} onChange={changeInputHandler}/>
-          <label htmlFor="res-time">Choose time</label>
-          <select id="res-time " name = 'time' value = {userData.time} onChange={changeInputHandler}>
-          {availableTimes && availableTimes.map((availableTime) => (
-          <option key={availableTime} value={availableTime}>
-            {availableTime}
-          </option>
-        ))}
-          </select>
-          <label htmlFor="guests">Number of guests</label>
-          <input type="number" placeholder="1" min="1" max="10" id="guests" name='guests' value={userData.guests} onChange={changeInputHandler} />
-          <label htmlFor="occasion">Occasion</label>
-          <select id="occasion" name='occasion' value={userData.occasion} onChange={changeInputHandler}>
-              <option>Birthday</option>
-              <option>Anniversary</option>
-          </select>
-          <input type="submit" value="Make Your Reservation"/>
-        </form>
+          <form className="form register_form" onSubmit={handleSubmit}>
+            <input type="text" placeholder='Full Name' name='name' value={userData.name} onChange={changeInputHandler} required/>
+            <input type="email" placeholder='Email' name='email' value={userData.email} onChange={changeInputHandler} required/> 
+            <label htmlFor="res-date">Choose date</label>
+            <input type="date" id="res-date" name='date' value={userData.date} onChange={changeInputHandler} required/>
+            <label htmlFor="res-time">Choose time</label>
+            <select id="res-time " name = 'time' value = {userData.time} onChange={changeInputHandler} required>
+            {availableTimes && availableTimes.map((availableTime) => (
+            <option key={availableTime} value={availableTime}>
+              {availableTime}
+            </option>
+          ))}
+            </select>
+            <label htmlFor="guests">Number of guests</label>
+            <input type="number" placeholder="2" min="2" max="10" id="guests" name='guests' value={userData.guests} onChange={changeInputHandler} />
+            <label htmlFor="occasion">Occasion</label>
+            <select id="occasion" name='occasion' value={userData.occasion} onChange={changeInputHandler}>
+                <option>Birthday</option>
+                <option>Anniversary</option>
+            </select>
+
+            <input type="submit" value="Make Your Reservation"
+            disabled= {userData.name.length === 0 || 
+              userData.email.length === 0 ||
+              userData.date.length === 0 ||
+              userData.time.length === 0 ||
+              userData.guests.length === 0 ||
+              userData.occasion.length === 0 ||
+              disable === 'submitted'
+            } aria-label='onClick'
+            />
+            <div className="hide">Complete all the fields to enable the Submit button</div>
+          </form>
         </div>
       </div>
   )

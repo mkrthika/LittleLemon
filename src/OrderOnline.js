@@ -9,7 +9,7 @@ const OrderOnline = ({img , name , price , desc}) => {
         <h4>{name}</h4>
         <h4>Price : {price}</h4>
         <p>{desc}</p>
-        <Link to="/">Add to the Basket</Link>
+        <Link>Add to the Basket</Link>
     </div>
         
     </>

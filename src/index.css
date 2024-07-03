@@ -150,6 +150,13 @@
   border-radius: 20px;
   font-weight: 700;
 }
+.register_content input[type="submit"]:disabled {
+  background-color: #495e57;
+}
+.hide{
+  display: none;
+}
+
 
 
 

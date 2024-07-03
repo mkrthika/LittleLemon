@@ -12,7 +12,7 @@ const HomePage = () => {
     <Header />
     <div className="homepage_component">
       <h1>This week's Specials</h1>
-      <Link to="order-online">Order Online</Link>
+      {localStorage.getItem("auth") ?<Link to="/order-online">Order Online</Link> : <Link to="/login">Order Online</Link>}
     </div>
     <div className="cards">
     <Card img={bruchetta} name="Bruchetta" price="12 AED" desc = "Bruschetta is an Italian antipasto consisting of grilled bread often topped with olive oil and salt. Most commonly it is served with toppings of tomato, vegetables, beans, cured meat, and/or cheese. In Italy, bruschetta is often prepared using a brustolina grill."/>
