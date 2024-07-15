@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import {Link} from 'react-router-dom'
+import axios from 'axios'
+import {useNavigate} from 'react-router-dom'
 
 const Register = () => {
   const[userData , setUserData] = useState({
@@ -9,6 +11,7 @@ const Register = () => {
     password2: ''
   })
   const[error,setError] = useState("")
+  const navigate = useNavigate()
   const changeInputHandler = (e) => {
     setUserData(prevState => {
       return {...prevState,[e.target.name]: e.target.value}
@@ -19,9 +22,18 @@ const Register = () => {
     if(userData.password !== userData.password2){
       setError("Passwords are not matching")
     }
+    
     else{
       setError("")
+      axios.post("http://localhost:8000/users" , userData)
+      .then(result => {
+        alert("Registered Successfully")
+        navigate('/login')
+        
+      })
+      .catch(err => console.log(err))
     }
+    
   }
   return (
     <div className="register_component">

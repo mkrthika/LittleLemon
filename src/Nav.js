@@ -3,6 +3,7 @@ import Logo from  './icons_assets/Logo .svg'
 import {Link, useNavigate} from 'react-router-dom'
 const Nav = () => {
   const[login,setLogin] = useState(true)
+  
   const navigate = useNavigate()
   const handleLogout = (e) => {
     navigate("/")
@@ -22,7 +23,7 @@ const Nav = () => {
             (<Link className="link" to="/" onClick={() => {handleLogout(); setLogin(true);}}>Logout</Link>) 
             :(<Link className="link" to="/login">LogIn</Link>)}</li>
         </ul>
-        {localStorage.getItem("auth") && <h1>Welcome Admin </h1>}
+        {localStorage.getItem("auth") && <h1></h1>}
     </nav>
   )
 }
