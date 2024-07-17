@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Logo from  './icons_assets/Logo .svg'
 import {Link, useNavigate} from 'react-router-dom'
+import Basket from './icons_assets/basket.png'
 const Nav = () => {
   const[login,setLogin] = useState(true)
   
@@ -22,6 +23,7 @@ const Nav = () => {
             <li>{login  && localStorage.getItem("auth") ? 
             (<Link className="link" to="/" onClick={() => {handleLogout(); setLogin(true);}}>Logout</Link>) 
             :(<Link className="link" to="/login">LogIn</Link>)}</li>
+            <li><img src={Basket} alt="Basket" /></li>
         </ul>
         {localStorage.getItem("auth") && <h1></h1>}
     </nav>

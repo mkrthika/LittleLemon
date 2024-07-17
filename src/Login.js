@@ -21,6 +21,7 @@ const Login = () => {
     e.preventDefault();
     let isValid = false;
     let validationErrors = {}
+    let count = 0;
     if (userData.email === "" || userData.email === null) {
       isValid = false;
       validationErrors.email =  "Email is required"
@@ -35,22 +36,42 @@ const Login = () => {
       validationErrors.password = "Password is required"
     }
 
-    axios.get("http://localhost:8000/users")
+    axios.get("http://localhost:7000/users")
     .then(result => {
       result.data.map(user => {
         if(user.email === userData.email){
+          count++;
+          //console.log(user.email + " === " + userData.email)
           if(user.password === userData.password){
+            //console.log(user.password + "===" + userData.password)
             localStorage.setItem("auth",JSON.stringify(userData))
             navigate("/")
-          }else{
+          }
+          else{
             isValid = false;
-            validationErrors.password = "Wrong password"
+            if(userData.password !== "")
+            {
+              //console.log(userData.password)
+              validationErrors.password = "Wrong password"
+            }
+            else{
+              validationErrors.password = "Password is required"
+            }
+            
           }
         }
         else{
-          validationErrors.email = "This Email is not registered. Please create a new account"
+          if(count === 0 && (userData.email !== "" && /\S+@\S+\.\S+/.test(userData.email))){
+            //console.log(user.email)
+            isValid = false;
+            validationErrors.email = "This Email is not registered. Please create a new account"
+          }
+         
+          
         }
-      })
+      }
+      
+    )
       setError(validationErrors)
       setValid(isValid) 
     })

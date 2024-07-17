@@ -73,6 +73,9 @@
   padding: 8px;
   border-radius: 10px;
 }
+.nav_component ul li a :last-child{
+  background-color: aquamarine;
+}
 .nav_component ul li a:hover , .footer_component ul li a:hover , .header_content a:hover , .homepage_component a:hover,
 .card_component a:hover , .starter a:hover , .login_content a:hover , .register_content a:hover{
   padding: 10px;
@@ -155,6 +158,10 @@
 }
 .hide{
   display: none;
+}
+nav ul li img{
+  width: 40px;
+  height: auto;
 }
 
 
